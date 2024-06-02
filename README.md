@@ -12,7 +12,9 @@ sections can be seen in the Table of Contents.
 
 ## Table of Contents
 
-1. Holder
+### Section 1
+This contains code focused on the Standard Library of Python.
+  - [Python-Overview](Section-1/python-overview)
 
 ## Authors
 Ethan Smith.
