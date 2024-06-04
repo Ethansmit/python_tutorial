@@ -227,6 +227,13 @@ string = r'C:\some\name' # string equals the address without escape character fu
 print(r'Something\or\not')
 # Note that raw strings cannot end with odd number of backslashes.
 
+# Format Strings
+# Formats operation, creates replacement fields with corresponding arguments indicated by {}
+"It's {}".format("George") # Formats "George" into brackets.
+f'The number is {5 + 3}' # Another way to use format. Useful for prints.
+# Formatting can also be used for maps.
+"{name} was born in {country}".format_map(name='Charles') # Formats a map entry to name and country arguments.
+
 # Multi-line String literal
 # Either ''' or """ can be used.
 multi = '''\
@@ -287,6 +294,35 @@ Here is a list of built in functions for strings.
 ```python
 len(word) # Length of word.
 str(word) # Returns string version of object.
-word.capitalize() # Returns copy of word where the first letter is capitalized and rest is lower case.
 
+word.capitalize() # Returns copy of word where the first letter is capitalized and rest is lower case.
+word.casefold() # Advanced lowercasing method for string comparisons.
+word.lower() # Return a copy of string with all characters converted to lowercase.
+
+word.center(20, '-') # Centers word with characters to the left nd right. Default is spaces.
+word.expandtabs(tabsize) # Replaces tab characters with spaces, 'tabsize' specifies the number of spaces.
+word.ljust(3," ") # Left jusitifes with the specidied width and fillchar.
+
+word.find(sub_str, start, end) # Finds start index in word where sub_str is. Start and end can be specified.
+word.index(sub_str, start, end) # Like find but raises error value if substring is not found.
+word.count(sub_str,start,end) # Counts the number of times a substring appears from start to end.
+word.endswith(suffix, start, end) # Checks if string ends with specified suffix. Start and end can be specified.
+
+word.join(word2) # Returns a string concatenating word and word2.
+word.encode(encoding, errors) # Returns string encoded to bytes. See encoding and error standards on Python Documentation.
+word.lstrip([chars]) # Removes leading characters. The chars in argument is a string specifying the set of characters to be removed.
+
+word.isalnum() # Returns true if the chars in the word are alphanumeric and there is atleast one character.
+word.isalpha() # Returns true if all the characters are alphabetic and there is alteast on character.
+word.isascii() # Returns true if all the characters are ASCII. False otherwise.
+word.isdecimal() # Returns true if all the characters are decimal characters (base 10) or if word is empty.
+word.isdigit() # Returns true if all characters are decimal characters and special handling characters. Must have atleast one character.
+word.isidentifier() # Returns true if the string is a valid identifier according to langauge definition.
+word.islower() # Return true if all characters are lowercase and there is atleast one cased character.
+word.isnumeric() # Returns true if all characters are numeric characters and there is atleast one character.
+word.isprintable() # Returns true if all characters are printaible or string is empty.
+# Nonprintable characters are characters classified in the Unicode character database as "Other" or "Seperator"
+word.isspace() # Returns true if the string is only white space and contains at least one character.
+word.istitle() # Returns true if the string is titlecased and there is at least one character.
+word.isupper() # Returns true if the string is uppercased and there is at least one character.
 ```
