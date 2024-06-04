@@ -15,6 +15,7 @@ sections can be seen in the Table of Contents.
 ### Section 1
 This contains code focused on the Standard Library of Python.
   - [Python-Overview](Section-1/python-overview)
+  - [Python-Basics](Section-1/python-basics.md)
 
 ## Authors
 Ethan Smith.
