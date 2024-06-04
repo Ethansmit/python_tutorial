@@ -10,6 +10,7 @@ Overview:
 - [Commenting](#Commenting)
 - [Variable Creation](#Variable-Creation)
 - [Numeric Operations](#Numeric-Operations)
+- [Boolean Operations](#Boolean-Operations)
 - [String Operations](#String-Operations)
 
 ## Commenting
@@ -64,7 +65,7 @@ type(x) # Returns the type of variable in format <class 'type'>
 string_cast = str(x)
 int_cast = int(x)
 float_csat = float(x)
-complex_cast = complex(x,y) # x for real component, y for complex.
+complex_cast = complex(x,y) # 'x' for real component, 'y' for complex.
 ```
 
 Here are some methods for assignment.
@@ -110,6 +111,68 @@ dictionary = {
 ```
 
 ## Numeric Operations
+These are operations that work with the numeric data types, specifically ints, floats, and complex values.
+```python
+# All numeric type supported operations.
+x + y # Addition
+x - y # Subtraction
+x * y # Multiplication
+x / y # Division (Always returns a float)
+x // y # Floor Division or Integer division (discards fractional portion)
+x % y # Modulo
+pow(x,y) # 'x' to the power of 'y'
+x ** y # Another way to write pow(x,y)
+-x # Negation
++x # Unchanged
+abs(x) # Absolute value
+int(x) # Converts 'x' to Integer. Truncates fractional part if float.
+float(x) # Converts 'x' to float.
+complex(re, im) # Creates complex number with real 're' and imaginary 'im'
+c.conjugate # Conjugate of complex number 'c'.
+divmod # Returns the pair (x // y, x % y)
+
+# We can also do assignment.
+x += y # Note that x++ not supported
+x -= y # x-- not supported
+x *= y
+x /= y
+x //= y
+x %= y
+
+# These operations can be done on ints and floats (we will go over math module later)
+math.trunc(x) # Truncates 'x' to integer.
+round(x,y) # Rounds 'x' by 'y' decimal places.
+math.floor(x) # Floors 'x' to nearest integer.
+math.ceil(x) # Ceiling 'x' to neartest integer.
+
+```
+
+Integer specific operations:
+```python
+# Bitwise Operations on ints.
+x | y # Bitwise OR of 'x' and 'y'.
+x ^ y # Bitwise XOR of 'x' and 'y'.
+x & y # Bitwise AND of 'x' and 'y'.
+x << n # Shift 'x' left by 'n' bits.
+x >> n # Shift 'x' right by 'n' bits.
+~x # Invert 'x's bits.
+
+# Other int methods.
+bin(x) # Returns binary representation of 'x'.
+x.bit_length() # Returns the number of bits necessary to represent 'x'.
+x.bit_count() # Returns the number of 1's in binary representation.
+x.to_bytes() # Returns array of bytes representing x. Input: (length, byteorder='big' or 'little', signed)
+int.from_bytes(x, byteorder='big') # Returns the int representation for a byte array 'x'.
+```
+Float specific operations:
+```python
+f.as_integer_ratio() # Returns a pair of integers whose ratio is exactly equal to 'f'.
+f.is_integer() # Returns true if 'f' is finite with integral value.
+f.hex() # Returns the hex representation of 'f'.
+float.fromhex(x) # Returns float from the given hex representation 'x'.
+```
+
+## Boolean Operations
 
 ## String Operations
 
