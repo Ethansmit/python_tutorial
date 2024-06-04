@@ -1,6 +1,6 @@
 # Python Basics
 
-This page will go over some basics about python, in specific, commenting, variable creation,
+This page will look at some basics about Python, in specific, commenting, variable creation,
 and a comprehensive list of functions for each data type. Note that this section will not
 cover over module based data types, like decimal, it will only standard data types. I will
 be brief in this section. For more information on specific functions, I would recommend
@@ -42,6 +42,7 @@ A few quick notes on variables.
 num = 3 # Integer
 num2 = 3.0 # Float
 comp = complex(3,3) # Complex
+boolean = bool(1) # Boolean
 
 word1 = "spam eggs" # String Literal
 word2 = 'spam eggs' # Another String literal, single and double quotes do the same thing.
@@ -173,9 +174,60 @@ float.fromhex(x) # Returns float from the given hex representation 'x'.
 ```
 
 ## Boolean Operations
+Most objects are considered true unless if certain conditions in the class says so.
+False is defined by the following:
+- None or False
+- 0, 0.0, 0j, Decimal(0), Fraction(0,1)
+- '', (), [], {}, set(), range(0)
+
+```python
+x = True # This is considered a string literal, but can still be used for boolean operations.
+x = bool(x) # Converts x to the bool type.
+
+# Boolean operations
+x and y # x && y equivalent.
+x or y # x || y equivalent.
+not x # Inverts the value of x. Note that not has the lowest prioerity of 'and' and 'or'.
+# print(not x == y) is interpreted as print(not (x == y))
+
+# Comparison Operators (Works just like C)
+x < y
+x <= y
+x >= y
+x == y
+x != y
+x is y # Object identity
+x is not y # Negated object identity.
+```
 
 ## String Operations
+List of operations for string literals and strings.
+```python
+# Creation of string literal and str
+word = "Hello World" # String Literal
+string = str(word) # str(word, encoding=, errors=).
 
+# Escape Characters
+# Only String literals read in escape characters.
+quotes = '\"That isn\'t true\"'
+new_line = 'Yes\n But Why?'
+# Escape characters include:
+\' # Single quote
+\\ # Backslash
+\n # New line
+\r # Carriage return
+\t # Tab
+\b # Backspace
+\f # Form Feed
+\ooo # Octal value
+\xhh # Hex value
+
+# Raw Strings, used to create string literals with escape characters.
+string = r'C:\some\name' # string equals the address without escape character functionality.
+print(r'Something\or\not')
+# Note that raw strings cannot end with odd number of backslashes.
+
+```
 
 ```python
 
