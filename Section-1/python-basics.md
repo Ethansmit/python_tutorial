@@ -8,13 +8,21 @@ look at the [Python Documentation](https://docs.python.org/3/index.html)
 
 Overview:
 - [Commenting](#Commenting)
-- [Variable Creation](#Variable Creation)
-- [Numeric Operations](#Numeric Operations)
-- [String Operations](#String Operations)
-
-Overview:
+- [Variable Creation](#Variable-Creation)
+- [Numeric Operations](#Numeric-Operations)
+- [String Operations](#String-Operations)
 
 ## Commenting
+
+Here is how to single line comment and multi-line comment
+```python
+# This is a single line comment.
+'''
+This is
+A multi-line
+comment
+'''
+```
 
 ## Variable Creation
 
