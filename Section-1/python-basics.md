@@ -69,6 +69,14 @@ float_csat = float(x)
 complex_cast = complex(x,y) # 'x' for real component, 'y' for complex.
 ```
 
+Here is some printf-style String Formatting
+TODO
+```python
+# One formatting method is using the % operator. This formats string using format % values.
+print('%(language)s has %(number)03d quote types.' %
+      {'language': "Python", "number": 2}) # Outputs 'Python has 002 quote types.'
+```
+
 Here are some methods for assignment.
 ```python
 # The following do the same thing.
@@ -147,6 +155,25 @@ math.floor(x) # Floors 'x' to nearest integer.
 math.ceil(x) # Ceiling 'x' to neartest integer.
 
 ```
+The order of operations are as follow:
+- Binding or parenthesizsed expressions, i.e. (), [], {}.
+- Subscription, slicing, call, attribute reference, i.e. x[index], x.attribute, x(arugments...)
+- Await expressoins
+- Exponentiation
+- Positive, negative, bitwise NOT
+- Multiplication, matrix multiplication, division, floor division, remainder
+- Addition and Subtraction
+- Shifts, i.e. << and >>
+- Bitwise AND
+- Bitwise XOR
+- Bitwise OR
+- Comparisons, i.e. <=, >=, ==, is not, is
+- Boolean Not (not x)
+- Boolean AND (and)
+- Boolean OR (or)
+- Conditional expression (if - else)
+- Lambda expression
+- Assignment expression
 
 Integer specific operations:
 ```python
@@ -298,19 +325,37 @@ str(word) # Returns string version of object.
 word.capitalize() # Returns copy of word where the first letter is capitalized and rest is lower case.
 word.casefold() # Advanced lowercasing method for string comparisons.
 word.lower() # Return a copy of string with all characters converted to lowercase.
+word.swapcase() # Returns copy of string with cases swapped.
+word.title() # Returns titledcased version of string. Title is starts with uppercase char and remaining are lowercase.
+word.upper() # Returns a copy of string with all characters uppercased.
 
-word.center(20, '-') # Centers word with characters to the left nd right. Default is spaces.
+word.center(20, '-') # Centers word with characters to the left nd right. Default is spaces
 word.expandtabs(tabsize) # Replaces tab characters with spaces, 'tabsize' specifies the number of spaces.
-word.ljust(3," ") # Left jusitifes with the specidied width and fillchar.
+word.ljust(width," ") # Left jusitifes with the specified width and fillchar.
+word.rjust(width, " ") # Right justifies with the specified width and fillchar
+word.zfill(width) # Return copy of string with word padded to the left with zeros until width is reached. Typically used for numbers.
 
 word.find(sub_str, start, end) # Finds start index in word where sub_str is. Start and end can be specified.
+word.rfind(sub_str, start, end) # Reverse find. Finds start index of sub from the highest index.
 word.index(sub_str, start, end) # Like find but raises error value if substring is not found.
+word.rindex(sub_str, start, end) # reverse index.
 word.count(sub_str,start,end) # Counts the number of times a substring appears from start to end.
 word.endswith(suffix, start, end) # Checks if string ends with specified suffix. Start and end can be specified.
+word.startswith(prefix, start, end) # Checks if string starts with specified prefix. start and end can be specified.
 
+word.replace(old, new[, count]) # Return copy of string with all occurences of old replaced with new. If count given, replace up to count.
 word.join(word2) # Returns a string concatenating word and word2.
+word.split(sep, maxsplit) # Splits by word sep and returns list of result. If 'maxsplit' specified, at most 'maxsplits' are done.
+word.rsplit(sep, maxsplit) # Spltis by word sep and returns list, maxsplits in the opposite direction.
+word.splitlines(keepends) # Splits by line boundaries and returns list. Line boundaries include \n, \r, \v, and other universal newlines.
 word.encode(encoding, errors) # Returns string encoded to bytes. See encoding and error standards on Python Documentation.
 word.lstrip([chars]) # Removes leading characters. The chars in argument is a string specifying the set of characters to be removed.
+word.rstrip([chars]) # Removes tailing chracters. The chars in argument is a string specifying the set of characters to be removed.
+word.partition(sep) # Seperates word by first occurence of 'sep', creating tuple with prefix, 'sep', and suffix of word.
+word.rpartition(sep) # Reverse partition, seperates by last occurence.
+word.removeprefix(prefix) # Removes the prefix of the word. Otherwise return copy of original string.
+word.removesuffix(suffix) # Removes the suffix of the word. Otherwise return copy of original string.
+word.strip([chars]) # Return copy of string with leading and trailing characters removed.
 
 word.isalnum() # Returns true if the chars in the word are alphanumeric and there is atleast one character.
 word.isalpha() # Returns true if all the characters are alphabetic and there is alteast on character.
@@ -325,4 +370,8 @@ word.isprintable() # Returns true if all characters are printaible or string is 
 word.isspace() # Returns true if the string is only white space and contains at least one character.
 word.istitle() # Returns true if the string is titlecased and there is at least one character.
 word.isupper() # Returns true if the string is uppercased and there is at least one character.
+
+str.maketrans(x,y) # Creates a dict for 'translate' to use.
+word.translate(table) # Uses table to remapping characters in word with the map.
+
 ```
