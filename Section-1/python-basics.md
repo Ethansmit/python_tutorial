@@ -227,8 +227,66 @@ string = r'C:\some\name' # string equals the address without escape character fu
 print(r'Something\or\not')
 # Note that raw strings cannot end with odd number of backslashes.
 
+# Multi-line String literal
+# Either ''' or """ can be used.
+multi = '''\
+Hello: Here are some options:
+    - Option 1
+    - Option 2
+    - Option 3
+Thanks!'''
+# Note that '\' is used to remove end of line character on first line.
+
+# String Concatenation
+str1 = 'um' + 'un' # (umun)
+str2 = 3 * str1 # (umunumunumun)
+str3 = 'Py' 'thon' # (Python)
+
+text = ('Put several strings within parentheses '
+        'to have them joined together.')
+
+# To join literal with variables use '+'
+prefix = 'Py'
+word = prefix + 'thon'
+
+string = ('un' * 3) + 'ium'
+
+# Indexing string
+word = 'Something'
+word[0] # 'S'
+word[6] # 'i'
+
+# Opposite indexing
+word[-1] # 'g'
+word[-6] # 'e'
+# Indexes must be within length of string. Also -0 == 0.
+
+# String splicing
+word = 'Something'
+word[0:3] # 'Som', Starts at word[0] and ends at word[2] (not including word[3]
+word[3:5] # 'et'
+
+word[:2] # Characters from 0 to 2 (excluded), 'So'
+word[4:] # Characters from 4 (included) to end, 'thing'
+word[-2:] # Characters from second last (included) to end, 'ng'
+
+word[:4] + word[4:] # 'Something'
+
+# Indexing errors
+char = word[42] # Error because 42 out of bounds.
+
+# Splicing handles large indexes gracefully.
+word[4:42] # Splices from 4 to end of string.
+word[42:] # 42 larger than word's length, so returns ''
+
+# Strings are immutable, reassignment doesn't work.
+word[0] = 'J' # Results in error.
 ```
+Here is a list of built in functions for strings.
 
 ```python
+len(word) # Length of word.
+str(word) # Returns string version of object.
+word.capitalize() # Returns copy of word where the first letter is capitalized and rest is lower case.
 
 ```
