@@ -69,7 +69,44 @@ complex_cast = complex(x,y) # x for real component, y for complex.
 
 Here are some methods for assignment.
 ```python
+# The following do the same thing.
+g = 30
+h = 30
+j = 30
 
+g = h = j = 30
+
+g, h, j = 30, 30, 30
+
+# You can also assign different types
+g, h, j = 1, 2, "Python"
+
+# Multi line statements.
+sentence = "This is a very long sentence that we want to " \
+           "split over multiple lines for better readability."
+
+# Equation on multiple lines.
+sum = 1 + 2 + 3 + \
+        4 + 5 + 6 + \
+        7 + 8 + 9
+
+# Implicit Continuation through the use of [], {}, or ()
+numbers = [
+    1, 2, 3,
+    4, 5, 6,
+    7, 8, 9
+]
+
+largest = max(
+    3, 150,
+    -35, 16
+)
+
+dictionary = {
+    "name": "John Smith",
+    "age": 23,
+    "favorite_food": "ice cream"
+}
 ```
 
 ## Numeric Operations
