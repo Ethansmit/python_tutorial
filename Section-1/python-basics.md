@@ -10,7 +10,6 @@ Overview:
 - [Commenting](#Commenting)
 - [Variable Creation](#Variable-Creation)
 - [Numeric Operations](#Numeric-Operations)
-- [Boolean Operations](#Boolean-Operations)
 - [String Operations](#String-Operations)
 
 ## Commenting
@@ -36,7 +35,7 @@ A few quick notes on variables.
 - Variable names are case sensitive.
 - Do not name variables after keywords (i.e. import, print, for, while)
 - python variables do not point to specific memory, rather they point to abstracted objects,
-  which are then deleted after no longer being referenced by the Python garbage collection.
+  which are then deleted after no longer being referenced by the Python garbage collector
 
 ```python
 num = 3 # Integer
@@ -65,16 +64,22 @@ type(x) # Returns the type of variable in format <class 'type'>
 # Casting
 string_cast = str(x)
 int_cast = int(x)
-float_csat = float(x)
+float_cast = float(x)
 complex_cast = complex(x,y) # 'x' for real component, 'y' for complex.
+bool_cast = bool(1) # rules for bool casting later.
 ```
 
-Here is some printf-style String Formatting
-TODO
+Here is some basic printing methods.
 ```python
 # One formatting method is using the % operator. This formats string using format % values.
 print('%(language)s has %(number)03d quote types.' %
       {'language': "Python", "number": 2}) # Outputs 'Python has 002 quote types.'
+
+# You can also use f-strings.
+year = 2024
+name = 'George'
+feels = 'Happy'
+print(f'Today is {year} and {name} is {feels}.')
 ```
 
 Here are some methods for assignment.
@@ -175,32 +180,9 @@ The order of operations are as follow:
 - Lambda expression
 - Assignment expression
 
-Integer specific operations:
-```python
-# Bitwise Operations on ints.
-x | y # Bitwise OR of 'x' and 'y'.
-x ^ y # Bitwise XOR of 'x' and 'y'.
-x & y # Bitwise AND of 'x' and 'y'.
-x << n # Shift 'x' left by 'n' bits.
-x >> n # Shift 'x' right by 'n' bits.
-~x # Invert 'x's bits.
 
-# Other int methods.
-bin(x) # Returns binary representation of 'x'.
-x.bit_length() # Returns the number of bits necessary to represent 'x'.
-x.bit_count() # Returns the number of 1's in binary representation.
-x.to_bytes() # Returns array of bytes representing x. Input: (length, byteorder='big' or 'little', signed)
-int.from_bytes(x, byteorder='big') # Returns the int representation for a byte array 'x'.
-```
-Float specific operations:
-```python
-f.as_integer_ratio() # Returns a pair of integers whose ratio is exactly equal to 'f'.
-f.is_integer() # Returns true if 'f' is finite with integral value.
-f.hex() # Returns the hex representation of 'f'.
-float.fromhex(x) # Returns float from the given hex representation 'x'.
-```
 
-## Boolean Operations
+### Boolean
 Most objects are considered true unless if certain conditions in the class says so.
 False is defined by the following:
 - None or False
@@ -228,7 +210,7 @@ x is not y # Negated object identity.
 ```
 
 ## String Operations
-List of operations for string literals and strings.
+Here is a description of strings and methods for them.
 ```python
 # Creation of string literal and str
 word = "Hello World" # String Literal
@@ -306,6 +288,16 @@ word[-2:] # Characters from second last (included) to end, 'ng'
 
 word[:4] + word[4:] # 'Something'
 
+# String stride
+var = '01234567'
+var[::2] # '0246'
+var[::-2] # '7531'
+var[1::2] # 1357
+var[2::2] # '246'
+var[::5] # '05'
+var[1::-2] # '1'
+var[2::-2] # '13'
+
 # Indexing errors
 char = word[42] # Error because 42 out of bounds.
 
@@ -315,63 +307,10 @@ word[42:] # 42 larger than word's length, so returns ''
 
 # Strings are immutable, reassignment doesn't work.
 word[0] = 'J' # Results in error.
-```
-Here is a list of built in functions for strings.
 
-```python
-len(word) # Length of word.
-str(word) # Returns string version of object.
-
-word.capitalize() # Returns copy of word where the first letter is capitalized and rest is lower case.
-word.casefold() # Advanced lowercasing method for string comparisons.
-word.lower() # Return a copy of string with all characters converted to lowercase.
-word.swapcase() # Returns copy of string with cases swapped.
-word.title() # Returns titledcased version of string. Title is starts with uppercase char and remaining are lowercase.
-word.upper() # Returns a copy of string with all characters uppercased.
-
-word.center(20, '-') # Centers word with characters to the left nd right. Default is spaces
-word.expandtabs(tabsize) # Replaces tab characters with spaces, 'tabsize' specifies the number of spaces.
-word.ljust(width," ") # Left jusitifes with the specified width and fillchar.
-word.rjust(width, " ") # Right justifies with the specified width and fillchar
-word.zfill(width) # Return copy of string with word padded to the left with zeros until width is reached. Typically used for numbers.
-
-word.find(sub_str, start, end) # Finds start index in word where sub_str is. Start and end can be specified.
-word.rfind(sub_str, start, end) # Reverse find. Finds start index of sub from the highest index.
-word.index(sub_str, start, end) # Like find but raises error value if substring is not found.
-word.rindex(sub_str, start, end) # reverse index.
-word.count(sub_str,start,end) # Counts the number of times a substring appears from start to end.
-word.endswith(suffix, start, end) # Checks if string ends with specified suffix. Start and end can be specified.
-word.startswith(prefix, start, end) # Checks if string starts with specified prefix. start and end can be specified.
-
-word.replace(old, new[, count]) # Return copy of string with all occurences of old replaced with new. If count given, replace up to count.
-word.join(word2) # Returns a string concatenating word and word2.
-word.split(sep, maxsplit) # Splits by word sep and returns list of result. If 'maxsplit' specified, at most 'maxsplits' are done.
-word.rsplit(sep, maxsplit) # Spltis by word sep and returns list, maxsplits in the opposite direction.
-word.splitlines(keepends) # Splits by line boundaries and returns list. Line boundaries include \n, \r, \v, and other universal newlines.
-word.encode(encoding, errors) # Returns string encoded to bytes. See encoding and error standards on Python Documentation.
-word.lstrip([chars]) # Removes leading characters. The chars in argument is a string specifying the set of characters to be removed.
-word.rstrip([chars]) # Removes tailing chracters. The chars in argument is a string specifying the set of characters to be removed.
-word.partition(sep) # Seperates word by first occurence of 'sep', creating tuple with prefix, 'sep', and suffix of word.
-word.rpartition(sep) # Reverse partition, seperates by last occurence.
-word.removeprefix(prefix) # Removes the prefix of the word. Otherwise return copy of original string.
-word.removesuffix(suffix) # Removes the suffix of the word. Otherwise return copy of original string.
-word.strip([chars]) # Return copy of string with leading and trailing characters removed.
-
-word.isalnum() # Returns true if the chars in the word are alphanumeric and there is atleast one character.
-word.isalpha() # Returns true if all the characters are alphabetic and there is alteast on character.
-word.isascii() # Returns true if all the characters are ASCII. False otherwise.
-word.isdecimal() # Returns true if all the characters are decimal characters (base 10) or if word is empty.
-word.isdigit() # Returns true if all characters are decimal characters and special handling characters. Must have atleast one character.
-word.isidentifier() # Returns true if the string is a valid identifier according to langauge definition.
-word.islower() # Return true if all characters are lowercase and there is atleast one cased character.
-word.isnumeric() # Returns true if all characters are numeric characters and there is atleast one character.
-word.isprintable() # Returns true if all characters are printaible or string is empty.
-# Nonprintable characters are characters classified in the Unicode character database as "Other" or "Seperator"
-word.isspace() # Returns true if the string is only white space and contains at least one character.
-word.istitle() # Returns true if the string is titlecased and there is at least one character.
-word.isupper() # Returns true if the string is uppercased and there is at least one character.
-
-str.maketrans(x,y) # Creates a dict for 'translate' to use.
-word.translate(table) # Uses table to remapping characters in word with the map.
+# Basic String methods
+len(x) # returns number of characters in string.
 
 ```
+
+TODO Basic String methods.
