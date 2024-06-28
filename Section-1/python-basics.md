@@ -11,6 +11,7 @@ Overview:
 - [Variable Creation](#Variable-Creation)
 - [Numeric Operations](#Numeric-Operations)
 - [String Operations](#String-Operations)
+- [Composite Data Structures](#Basic-Data-Structures)
 
 ## Commenting
 
@@ -310,7 +311,59 @@ word[0] = 'J' # Results in error.
 
 # Basic String methods
 len(x) # returns number of characters in string.
+str.split(pattern) # splits a given string by pattern. Default is space.
 
 ```
 
-TODO Basic String methods.
+## Basic Data Structures
+There are four main basic data structures in Python.
+- Lists
+- Tuples
+- Sets
+- Dictionaries
+
+### Lists
+Lists are an ordered, mutable collection that allow duplicate values. can be used
+as various data structures, like arrays, linked-lists, and stacks. Here is a 
+demonstration of lists.
+```python
+# Lists can store a variety of data types and are not type constrained.
+empty_list = []
+names = ['John', 'Tim', 'Anna', 'George', 1, 3, 5]
+
+# Accesses work just like arrays in other languages.
+names[0] # "John"
+names[3] # "George"
+names[-1] # 5
+
+# Splicing also works.
+names[2:4] #['Anna', 'George']
+
+# Concatenation
+names2 = names + ['Eric']
+names3 = names + 3 * ['Eric']
+
+# Adding elements
+names.extend([1,2]) # Extend adds each element as its own element to the end.
+names.append([1,2]) # Adds a single element that is [1,2] to the end.
+
+# Removing elements
+del(names[0]) # Removes element at index 0.
+
+#
+```
+
+### Tuples
+```python
+
+```
+
+### Sets
+```python
+
+```
+
+### Dictionaries
+```python
+
+```
