@@ -335,6 +335,7 @@ names = ['John', 'Tim', 'Anna', 'George', 1, 3, 5]
 names[0] # "John"
 names[3] # "George"
 names[-1] # 5
+names[0] = 'Joe' 
 
 # Splicing also works.
 names[2:4] #['Anna', 'George']
@@ -346,13 +347,26 @@ names3 = names + 3 * ['Eric']
 # Adding elements
 names.extend([1,2]) # Extend adds each element as its own element to the end.
 names.append([1,2]) # Adds a single element that is [1,2] to the end.
+names.insert(2, 'Bob') # Inserts 'Bob' at index 2.
 
 # Removing elements
 del(names[0]) # Removes element at index 0.
+names.remove('Tim') # removes the first instance of x in the list.
+names.pop() # removes last element. Input specifies an index to remove.
 
 # Some important functions
 len(names)
+names.clear() # Removes all items from the list.
+names.count(x) # counts the number of times 'x' appears in names.
+list.sort() # sorts the list.
+list.reverse() # reverses elements in list.
+list.copy() # shallow copies list.
+
+# List comprehension is a means of creating a list in a single line.
+numbers = [1, 2, 3, 4, 5]
+numbers2 = [number + 1 for number in numbers]
 ```
+For stack implementation, append and pop can be used to a stack ADT.
 
 ### Tuples
 Tuples are an ordered collection, but unlike lists, they are unmutable. They 
@@ -401,9 +415,13 @@ basket.remove('pear')
 
 # Set operations.
 set1 & set2 # Intersection operation: {'a', 'c'}.
-set1.union(set2) # Union operation: {'a', 'b', 'd', 'c'}.
-set1.difference(set2) # Difference operation: {'b'}.
+set1.intersection(set2)
+set1 - set2 # Difference operation: {'b'}.
+set1.difference(set2)
+set1 | set2 # Union operation: {'a', 'b', 'd', 'c'}.
+set1.union(set2)
 set1.issubset(set2) # Checks if set1 is a subset of set2.
+set1 ^ set2 # Elements in Set1 and Set2 but not in both: {'d', 'b'}
 
 # Some other operations
 set([1, 2, 3]) # Turns a list into a set.
@@ -415,6 +433,8 @@ each element coming in a pair of (key, value). Note that dicts do not contain
 duplicate elements.
 ```python
 id_dict = {'John': 1, 'Evan': 2}
+# Using dict constructor.
+dict([('sape', 4139), ('guido', 4127), ('jack', 4098)])
 
 # Accessing elements
 id_dict['John'] # returns 1.
@@ -430,6 +450,8 @@ del[id_dict['John']]
 
 # Dict functions
 id_dict.keys() # returns a view object of the keys as a list.
+list(dict) # returns a list of the keys.
 id_dict.values() # returns a view object of the values as a list.
 
 ```
+TODO loops for these data structures.
