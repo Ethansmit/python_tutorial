@@ -350,12 +350,31 @@ names.append([1,2]) # Adds a single element that is [1,2] to the end.
 # Removing elements
 del(names[0]) # Removes element at index 0.
 
-#
+# Some important functions
+len(names)
 ```
 
 ### Tuples
-```python
+Tuples are an ordered collection, but unlike lists, they are unmutable. They 
+allow for duplicate values and are used as a replacement for representing
+container objects or classes which lack methods. For example, instead of
+creating a song object to store song info, you can use a tuple, and order
+its elements to the data structure of the song object.
 
+Below is a demonstration of tuples.
+```python
+empty_tup = ()
+tup1 = (1, 4, 'yes', 'false')
+
+# Accessing works like lists.
+tup[1] # 1
+tup[3] # 'false'
+
+# Splicing, Conacentation work just like lists.
+# Note that tuples can't be extended or shortened after creation.
+
+# Some important functions
+len(tup1)
 ```
 
 ### Sets
