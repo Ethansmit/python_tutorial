@@ -376,13 +376,60 @@ tup[3] # 'false'
 # Some important functions
 len(tup1)
 ```
-
+Tuples are also useful for varying inputs, such as for function inputs or
+when reading data with varying sizes.
 ### Sets
-```python
+Sets are an unordered collection type. Sets follow their mathematical property
+of only storing with no duplicate elements. Some uses for sets include
+membership testing, eliminating duplicates, and performing set operations.
 
+```python
+empty_set = {}
+basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+set1 = {'a', 'b', 'c'}
+set2 = {'a', 'c', 'd'}
+
+# Adding elements
+basket.add('grape fruit')
+
+# Removing elements
+basket.remove('pear')
+
+# Using conditionals is a common use of sets.
+'apple' in basket # true
+'pear' in basket # false
+
+# Set operations.
+set1 & set2 # Intersection operation: {'a', 'c'}.
+set1.union(set2) # Union operation: {'a', 'b', 'd', 'c'}.
+set1.difference(set2) # Difference operation: {'b'}.
+set1.issubset(set2) # Checks if set1 is a subset of set2.
+
+# Some other operations
+set([1, 2, 3]) # Turns a list into a set.
 ```
 
 ### Dictionaries
+Dictionaries are the python implementation of "associative arrays", with 
+each element coming in a pair of (key, value). Note that dicts do not contain
+duplicate elements.
 ```python
+id_dict = {'John': 1, 'Evan': 2}
+
+# Accessing elements
+id_dict['John'] # returns 1.
+
+# Adding elements
+id_dict['George'] = 3
+
+# Removing elements
+del[id_dict['John']]
+
+# Keys can be used as conditionals.
+'Evan' in id_dict
+
+# Dict functions
+id_dict.keys() # returns a view object of the keys as a list.
+id_dict.values() # returns a view object of the values as a list.
 
 ```
